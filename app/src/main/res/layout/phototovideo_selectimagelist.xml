@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="#efeff4" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
+    <com.google.android.gms.ads.AdView android:id="@+id/banner_AdView" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@+id/toolbar" android:layout_centerHorizontal="true" app:adSize="BANNER" app:adUnitId="@string/BannerAd"/>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@+id/bottom" android:layout_below="@+id/banner_AdView">
+        <View android:layout_gravity="center_horizontal"
+            android:layout_width="10dp" android:layout_height="10dp" android:layout_marginTop="150dp"/>
+        <org.askerov.dynamicgrid.DynamicGridView android:layout_gravity="center_horizontal" android:id="@+id/dynamic_grid" android:padding="3dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:listSelector="@android:color/transparent" android:numColumns="2"/>
+    </FrameLayout>
+    <ViewStub android:layout_gravity="bottom" android:id="@+id/stub_import" android:layout="@layout/layout_showcaseview" android:inflatedId="@+id/panel_import" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <Button android:id="@+id/btnOK" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="20dp" android:minWidth="5dp" android:minHeight="5dp" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" style="?android:attr/borderlessButtonStyle"/>
+    <RelativeLayout android:id="@+id/bottom" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="50dp" android:layout_alignParentBottom="true">
+        <LinearLayout android:gravity="center" android:orientation="horizontal"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="70dp" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+            <com.androworld.videoeditorpro.MetaFont
+                android:textSize="17dp" android:textColor="#000000" android:gravity="center" android:id="@+id/original_tv" android:paddingLeft="5dp" android:paddingRight="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ORIGINAL"/>
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="70dp" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+            <com.androworld.videoeditorpro.MetaFont
+                android:textSize="17dp" android:textColor="#ffffffff" android:gravity="center" android:id="@+id/fit_tv" android:paddingLeft="5dp" android:paddingRight="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FIT"/>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

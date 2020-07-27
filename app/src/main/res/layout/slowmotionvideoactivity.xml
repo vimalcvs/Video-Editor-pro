@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="#efeff4" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
+    <RelativeLayout android:id="@+id/RlFilename" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginLeft="5dp" android:layout_marginTop="10dp" android:layout_marginRight="5dp" android:layout_below="@+id/toolbar">
+        <com.androworld.videoeditorpro.MetaFont
+            android:textAppearance="?android:attr/textAppearance" android:textSize="15dp" android:textStyle="bold" android:textColor="#000000" android:id="@+id/Filename" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_above="@+id/SeekbarLayout" android:layout_below="@+id/RlFilename">
+        <VideoView android:id="@+id/videoView1" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:keepScreenOn="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/SeekbarLayout" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_above="@+id/TimeLayout">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:weightSum="2" android:layout_alignParentLeft="true">
+            <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.7">
+                <ImageView android:id="@+id/buttonply1" android:background="@drawable/play2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginRight="10dp" android:layout_weight="0.3">
+                <com.androworld.videoeditorpro.VideoSliceSeekBar
+                    android:id="@+id/seek_bar" android:padding="20dp" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/TimeLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="10dp" android:layout_above="@+id/EnableAudioLayout">
+        <com.androworld.videoeditorpro.MetaFont
+            android:textAppearance="?android:attr/textAppearance" android:textSize="15dp" android:textStyle="bold" android:textColor="@color/colorPrimary" android:id="@+id/left_pointer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00:00" android:layout_alignParentLeft="true" android:layout_centerVertical="true"/>
+        <com.androworld.videoeditorpro.MetaFont
+            android:textAppearance="?android:attr/textAppearance" android:textSize="15dp" android:textStyle="bold" android:textColor="@color/colorPrimary" android:id="@+id/right_pointer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00:00" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/EnableAudioLayout" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="10dp" android:layout_above="@+id/SlowSpeedUptoLayout">
+        <com.androworld.videoeditorpro.MetaFont
+            android:textSize="18dp" android:textColor="@color/colorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Enable Audio" android:layout_alignParentLeft="true" android:layout_centerInParent="true"/>
+        <androidx.appcompat.widget.AppCompatCheckBox android:id="@+id/checkBox1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/SlowSpeedUptoLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_above="@+id/DurationLayout">
+        <com.androworld.videoeditorpro.MetaFont
+            android:textSize="15dp" android:textColor="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Slow Speed Upto" android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/DurationLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="10dp" android:layout_alignParentBottom="true">
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.xw.repo.BubbleSeekBar android:id="@+id/seekBar" android:layout_width="match_parent" android:layout_height="wrap_content" app:bsb_auto_adjust_section_mark="true" app:bsb_max="8" app:bsb_min="1" app:bsb_second_track_color="@color/colorPrimaryDark" app:bsb_section_count="7" app:bsb_show_section_mark="true" app:bsb_thumb_text_color="@color/colorPrimaryDark" app:bsb_thumb_text_size="18sp"/>
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+                    <TextView android:textColor="@color/seekbargray" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1x"/>
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+                    <TextView android:textColor="@color/seekbargray" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2x"/>
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+                    <TextView android:textColor="@color/seekbargray" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3x"/>
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+                    <TextView android:textColor="@color/seekbargray" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4x"/>
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+                    <TextView android:textColor="@color/seekbargray" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5x"/>
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+                    <TextView android:textColor="@color/seekbargray" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6x"/>
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+                    <TextView android:textColor="@color/seekbargray" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7x"/>
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+                    <TextView android:textColor="@color/seekbargray" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="8x"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

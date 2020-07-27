@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="#efeff4" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
+    <RelativeLayout android:id="@+id/RlFilename" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginRight="5dp" android:layout_below="@+id/toolbar">
+        <com.androworld.videoeditorpro.MetaFont
+            android:textAppearance="?android:attr/textAppearance" android:textSize="15dp" android:textStyle="bold" android:textColor="#000000" android:id="@+id/Filename" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_above="@+id/SeekbarLayout" android:layout_below="@+id/RlFilename">
+        <VideoView android:id="@+id/videoView1" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:keepScreenOn="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/SeekbarLayout" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_above="@+id/TimeLayout">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:weightSum="2" android:layout_alignParentLeft="true">
+            <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.7">
+                <ImageView android:id="@+id/btnPlayVideo" android:background="@drawable/play2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginRight="10dp" android:layout_weight="0.3">
+                <com.androworld.videoeditorpro.VideoSliceSeekBar
+                    android:id="@+id/seekBar1" android:padding="20dp" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/TimeLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_above="@+id/SelectAudioLayout">
+        <com.androworld.videoeditorpro.MetaFont
+            android:textAppearance="?android:attr/textAppearance" android:textSize="15dp" android:textStyle="bold" android:textColor="@color/colorPrimary" android:id="@+id/left_pointer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00:00" android:layout_alignParentLeft="true" android:layout_centerVertical="true"/>
+        <com.androworld.videoeditorpro.MetaFont
+            android:textAppearance="?android:attr/textAppearance" android:textSize="15dp" android:textStyle="bold" android:textColor="@color/colorPrimary" android:id="@+id/right_pointer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00:00" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/SelectAudioLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_above="@+id/DurationLayout">
+        <LinearLayout android:orientation="horizontal" android:id="@+id/imgbtn_add" android:background="@color/colorPrimary" android:layout_width="180dp" android:layout_height="30dp" android:weightSum="2" android:layout_centerInParent="true">
+            <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="0.4">
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/music"/>
+                <com.androworld.videoeditorpro.MetaFont
+                    android:textSize="14dp" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3dp" android:text="Add Audio Mixer"/>
+            </LinearLayout>
+            <View
+                android:background="#eeeff3" android:layout_width="1dp" android:layout_height="wrap_content"/>
+            <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.6">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_next"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/DurationLayout" android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginLeft="5dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:layout_alignParentBottom="true">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/lnr_audio_select" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="5dp">
+                <com.androworld.videoeditorpro.MetaFont
+                    android:textSize="14dp" android:textColor="@color/colorPrimary" android:id="@+id/tvStartAudio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:text="00:00"/>
+                <com.androworld.videoeditorpro.AudioSliceSeekBar
+                    android:id="@+id/audioSeekBar" android:padding="10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1"/>
+                <com.androworld.videoeditorpro.MetaFont
+                    android:textSize="14dp" android:textColor="@color/colorPrimary" android:id="@+id/tvEndAudio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="18dp" android:text="00:00"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.androworld.videoeditorpro.MetaFont
+                    android:textSize="12dp" android:textColor="@color/colorPrimary" android:id="@+id/audio_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:text="hellosdf sdkjfs" android:singleLine="true" android:layout_weight="1"/>
+                <ImageView android:id="@+id/imgbtn_close" android:background="@drawable/ic_close" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="18dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

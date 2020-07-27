@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="#efeff4" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
+    <RelativeLayout android:id="@+id/RlFilename" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginLeft="5dp" android:layout_marginTop="10dp" android:layout_marginRight="5dp" android:layout_below="@+id/toolbar">
+        <com.androworld.videoeditorpro.MetaFont
+            android:textAppearance="?android:attr/textAppearance" android:textSize="15dp" android:textStyle="bold" android:textColor="#000000" android:id="@+id/Filename" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_above="@+id/SeekbarLayout" android:layout_below="@+id/RlFilename">
+        <LinearLayout android:gravity="center" android:orientation="vertical"
+            android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="5dp">
+            <FrameLayout android:layout_gravity="center" android:id="@+id/rl_container" android:layout_width="match_parent" android:layout_height="match_parent">
+                <VideoView android:layout_gravity="center" android:id="@+id/videoview" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                <ImageView android:id="@+id/ivScreen" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <com.edmodo.cropper.CropImageView android:layout_gravity="center" android:id="@+id/cropperView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" android:layout_centerInParent="true"/>
+            </FrameLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/SeekbarLayout" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_above="@+id/TimeLayout">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:weightSum="2" android:layout_alignParentLeft="true">
+            <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.7">
+                <ImageView android:id="@+id/buttonply" android:background="@drawable/play2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginRight="10dp" android:layout_weight="0.3">
+                <com.androworld.videoeditorpro.VideoSliceSeekBar
+                    android:id="@+id/seek_bar" android:padding="20dp" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/TimeLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_above="@+id/CompressLayout">
+        <com.androworld.videoeditorpro.MetaFont
+            android:textAppearance="?android:attr/textAppearance" android:textSize="15dp" android:textStyle="bold" android:textColor="@color/colorPrimary" android:id="@+id/left_pointer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00:00" android:layout_alignParentLeft="true" android:layout_centerVertical="true"/>
+        <com.androworld.videoeditorpro.MetaFont
+            android:textAppearance="?android:attr/textAppearance" android:textSize="15dp" android:textStyle="bold" android:textColor="@color/colorPrimary" android:id="@+id/right_pointer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00:00" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/CompressLayout" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="70dp" android:layout_alignParentBottom="true">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <HorizontalScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+                <LinearLayout android:layout_gravity="bottom" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10dp" android:weightSum="9">
+                    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                        <ImageButton android:layout_gravity="center_vertical" android:id="@+id/imbtn_custom" android:background="@drawable/ic_crop_custom_press" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerCrop"/>
+                        <ImageView android:layout_gravity="bottom" android:id="@+id/slideimbtn_o" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                        <ImageButton android:layout_gravity="center_vertical" android:id="@+id/imgbtn_square" android:background="@drawable/ic_crop_square" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <ImageView android:layout_gravity="bottom" android:id="@+id/slideimbtn_square" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                        <ImageButton android:layout_gravity="center_vertical" android:id="@+id/imgbtn_port" android:background="@drawable/ic_crop_portrait" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <ImageView android:layout_gravity="bottom" android:id="@+id/slideimbtn_port" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                        <ImageButton android:layout_gravity="center_vertical" android:id="@+id/imgbtn_cland" android:background="@drawable/ic_crop_landscape" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <ImageView android:layout_gravity="bottom" android:id="@+id/slideimbtn_cland" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                        <ImageButton android:layout_gravity="center_vertical" android:id="@+id/imgbtn_three" android:background="@drawable/ic_crop_23" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <ImageView android:layout_gravity="bottom" android:id="@+id/slideimbtn_three" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                        <ImageButton android:layout_gravity="center_vertical" android:id="@+id/imgbtn_five" android:background="@drawable/ic_crop_32" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <ImageView android:layout_gravity="bottom" android:id="@+id/slideimbtn_five" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                        <ImageButton android:layout_gravity="center_vertical" android:id="@+id/imgbtn_seven" android:background="@drawable/ic_crop_34" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <ImageView android:layout_gravity="bottom" android:id="@+id/slideimbtn_seven" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                        <ImageButton android:layout_gravity="center_vertical" android:id="@+id/imgbtn_eight" android:background="@drawable/ic_crop_35" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <ImageView android:layout_gravity="bottom" android:id="@+id/slideimbtn_eight" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                        <ImageButton android:id="@+id/imgbtn_45" android:background="@drawable/ic_crop_45" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerCrop"/>
+                        <ImageView android:layout_gravity="bottom" android:id="@+id/slideimbtn_45" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

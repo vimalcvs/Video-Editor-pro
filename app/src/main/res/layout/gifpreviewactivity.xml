@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="#efeff4" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
+    <RelativeLayout android:id="@+id/RlFilename" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginLeft="5dp" android:layout_marginTop="10dp" android:layout_marginRight="5dp" android:layout_below="@+id/toolbar">
+        <com.androworld.videoeditorpro.MetaFont
+            android:textAppearance="?android:attr/textAppearance" android:textSize="20dp" android:textStyle="bold" android:textColor="#000000" android:id="@+id/Filename" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <com.google.android.gms.ads.AdView android:id="@+id/banner_AdView" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@+id/RlFilename" android:layout_centerHorizontal="true" app:adSize="BANNER" app:adUnitId="@string/BannerAd"/>
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_below="@+id/banner_AdView">
+        <ImageView android:id="@+id/imgGif" android:layout_width="match_parent" android:layout_height="250dp" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:scaleType="fitXY" android:layout_centerInParent="true"/>
+    </RelativeLayout>
+</RelativeLayout>
